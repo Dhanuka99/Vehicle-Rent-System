@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Muhamad Nauval Azhar">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="This is a login page template based on Bootstrap 5">
+	<title>Booking</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/Main.css">
+</head>
+
+<body onload="loadDriverNic(),loadVehicleNo()">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+						<img src="https://t4.ftcdn.net/jpg/02/10/64/01/360_F_210640179_oryhq21swIcwfvp9Q5HySrFC9EpQC1dq.jpg" alt="logo" width="100">
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw-bold mb-4">Booking Form!</h1>
+							<form id="DriverDetails" class="needs-validation" novalidate="" autocomplete="off">
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="customerNic">Customer NIC</label>
+									<input id="customerNic" type="text" class="form-control" name="name" value="" required autofocus>
+									<div class="invalid-feedback">
+										Customer NIC is required
+									</div>
+								</div>
+
+
+									<div class="mb-3">
+										<div class="mb-2 text-muted">
+											<label for="driverNic">Driver NIC</label>
+											<select id="driverNic" class="form-control mb-2 text-muted">
+											<option selected>No Driver</option>
+											</select>
+										</div>
+									</div>
+
+
+
+									<div class="mb-3">
+										<div class="mb-2 text-muted">
+											<label for="vehicleNo">Vehicle No</label>
+											<select id="vehicleNo" class="form-control mb-2 text-muted">
+<!--												<option selected>No Driver</option>-->
+											</select>
+										</div>
+									</div>
+
+
+								<div class="mb-3">
+									<div class="mb-2 text-muted">
+										<label for="bookingDate">Booking Date</label>
+									<div class="input-group date text-muted">
+										<input type="date" id="bookingDate" name="bookingDate">
+									</div>
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<div class="mb-2 text-muted">
+										<label for="bookingTime">Booking Time</label>
+										<div class="input-group date text-muted">
+											<input type="time" id="bookingTime" name="bookingTime">
+										</div>
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<div class="mb-2 text-muted">
+										<label for="returnDate">Return Date</label>
+										<div class="input-group date text-muted">
+											<input type="date" id="returnDate" name="returnDate">
+										</div>
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<div class="mb-2 text-muted">
+										<label for="returnTime">Return Time</label>
+										<div class="input-group date text-muted">
+											<input type="time" id="returnTime" name="returnTime">
+										</div>
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<div class="mb-2 text-muted">
+										<label for="bookingStatus">Booking Status</label>
+										<select id="bookingStatus" class="form-control mb-2 text-muted">
+											<option selected>Booked</option>
+											<option >Pending</option>
+										</select>
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="startMileage">Start Mileage</label>
+									<input id="startMileage" type="text" class="form-control" name="name" value="" required autofocus>
+									<div class="invalid-feedback">
+										Start Mileage is required
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="endMileage">End Mileage</label>
+									<input id="endMileage" type="text" class="form-control" name="name" value="" required autofocus>
+									<div class="invalid-feedback">
+										End Mileage is required
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<div class="mb-2 text-muted">
+										<label for="releaseStatus">Release Status</label>
+										<select id="releaseStatus" class="form-control mb-2 text-muted">
+											<option selected>Released</option>
+											<option >not Released</option>
+										</select>
+									</div>
+								</div>
+
+
+
+								<div class="align-items-center d-flex">
+									<button type="submit" class="btn btn-primary ms-auto" id="btnBooking">
+										Booking
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer py-3 border-0">
+<!--							<div class="text-center">-->
+<!--								Already have an account? <a href="index.html" class="text-dark">Login</a>-->
+<!--							</div>-->
+						</div>
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2021 &mdash; {Escape} Software Solutions
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</section>
+
+	<script>
+		$("#btnBooking").click(function () {
+
+
+			let customerNic = $("#customerNic").val();
+			let vehicleNo = $("#vehicleNo").val();
+			let driverNic = $("#driverNic").val();
+			let bookingDate = $("#bookingDate").val();
+			let bookingTime = $("#bookingTime").val();
+			let bookingStatus = $("#bookingStatus").val();
+			let returnDate = $("#returnDate").val();
+			let returnTime = $("#returnTime").val();
+			let startMileage = $("#startMileage").val();
+			let endMileage = $("#endMileage").val();
+			let releaseStatus = $("#releaseStatus").val();
+
+			document.write(customerNic);
+			document.write(vehicleNo);
+			document.write(driverNic);
+			document.write(bookingDate);
+			document.write(bookingTime);
+			document.write(bookingStatus);
+			document.write(returnTime);
+			document.write(startMileage);
+			document.write(endMileage);
+			document.write(releaseStatus);
+
+
+			$.ajax({
+				method: "POST",
+				url: "http://localhost:8080/Vehicle_Rent_System_war_exploded/api/booking/placeBooking",
+				async: true,
+				contentType: 'application/json',
+				data: JSON.stringify({
+					customerNic:customerNic,
+					vehicleNo:vehicleNo,
+					driverNic:driverNic,
+					bookingDate:bookingDate,
+					bookingTime:bookingTime,
+					bookingStatus:bookingStatus,
+					returnDate:returnDate,
+					returnTime:returnTime,
+					startMileage:startMileage,
+					endMileage:endMileage,
+					releaseStatus:releaseStatus,
+				}),
+				success: function (data) {
+					console.log(data);
+				}
+			});
+		});
+
+		function loadDriverNic(){
+			$.ajax({
+				method: "GET",
+				url: "http://localhost:8080/Vehicle_Rent_System_war_exploded/api/driver/getAvailableDriverID",
+				async: true,
+				contentType: 'application/json',
+				success: function (data) {
+					console.log(data);
+					for(var i of data.data){
+						var div_data = "<option>" + i + "</option>";
+						$(div_data).appendTo('#driverNic');
+					}
+				}
+			});
+		}
+
+		function loadVehicleNo(){
+			$.ajax({
+				method:"GET",
+				url:"http://localhost:8080/Vehicle_Rent_System_war_exploded/api/vehicle/getAvailableVehicleNo",
+				async:true,
+				contentType:"application/json",
+				success:function (data){
+					for (var i of data.data) {
+						var div_data = "<option>"+i+"</option>";
+						$(div_data).appendTo("#vehicleNo")
+					}
+				}
+			});
+		}
+
+
+	</script>
+</body>
+</html>

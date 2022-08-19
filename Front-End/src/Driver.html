@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Muhamad Nauval Azhar">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="This is a login page template based on Bootstrap 5">
+	<link rel="stylesheet" href="css/Main.css">
+	<title>Driver Registration</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body  style="background: #2ecc71">
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+					<div class="text-center my-5">
+						<img src="https://t4.ftcdn.net/jpg/02/10/64/01/360_F_210640179_oryhq21swIcwfvp9Q5HySrFC9EpQC1dq.jpg" alt="logo" width="100">
+					</div>
+					<div class="card shadow-lg">
+						<div class="card-body p-5">
+							<h1 class="fs-4 card-title fw-bold mb-4">Driver Account!</h1>
+							<form id="DriverDetails" class="needs-validation" novalidate="" autocomplete="off">
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="driverNic">Driver NIC</label>
+									<input id="driverNic" type="text" class="form-control" name="name" value="" required autofocus>
+									<div class="invalid-feedback">
+										Driver NIC is required
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="driverName">Driver Name</label>
+									<input id="driverName" type="text" class="form-control" name="name" value="" required autofocus>
+									<div class="invalid-feedback">
+										Driver Name is required
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="driverAddress">Driver Address</label>
+									<input id="driverAddress" type="text" class="form-control" name="name" value="" required autofocus>
+									<div class="invalid-feedback">
+										Driver Address is required
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="driverLicense">Driver License No</label>
+									<input id="driverLicense" type="text" class="form-control" name="name" value="" required autofocus>
+									<div class="invalid-feedback">
+										Driver License No is required
+									</div>
+								</div>
+
+								<div class="mb-3">
+									<label class="mb-2 text-muted" for="driverTel">Driver Telephone No</label>
+									<input id="driverTel" type="text" class="form-control" name="name" value="" required autofocus>
+									<div class="invalid-feedback">
+										Driver Telephone No is required
+									</div>
+								</div>
+
+
+
+								<div class="align-items-center d-flex">
+									<button type="submit" class="btn btn-primary ms-auto" id="btnDriverRegister">
+										Register
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer py-3 border-0">
+<!--							<div class="text-center">-->
+<!--								Already have an account? <a href="index.html" class="text-dark">Login</a>-->
+<!--							</div>-->
+						</div>
+					</div>
+					<div class="text-center mt-5 text-muted">
+						Copyright &copy; 2021 &mdash; {Escape} Software Solutions
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="jquery-3.6.0.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+	</section>
+
+	<script>
+		$("#btnDriverRegister").click(function () {
+
+
+			let driverNic = $("#driverNic").val();
+			let driverName = $("#driverName").val();
+			let driverAddress = $("#driverAddress").val();
+			let driverLicense = $("#driverLicense").val();
+			let driverTel = $("#driverTel").val();
+
+
+			$.ajax({
+				method: "POST",
+				url: "http://localhost:8080/Vehicle_Rent_System_war_exploded/api/driver/save",
+				async: true,
+				contentType: 'application/json',
+				data: JSON.stringify({
+					driverNic:driverNic,
+					driverName:driverName,
+					DriverAddress:driverAddress,
+					driverLicenseNo:driverLicense,
+					DriverTel:driverTel,
+				}),
+				success: function (data) {
+					console.log(data);
+				}
+			});
+		});
+
+
+	</script>
+</body>
+</html>
